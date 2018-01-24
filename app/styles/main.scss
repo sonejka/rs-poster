@@ -1,0 +1,319 @@
+// bower:scss
+// endbower
+@import "normalize";
+
+/*------------------------------------*\
+    VARIABLES
+\*------------------------------------*/
+
+$color-white: #fff;
+$color-black: #151515;
+
+$color-link: $color-black;
+$color-text: $color-black;
+
+$color-blue: #6CD9FF;
+$color-purple: #BB94FF;
+$color-pink: #FC94FC;
+$color-yellow: #F8EF5A;
+$color-lime: #CDE525;
+$color-green: #51E782;
+
+$font-family: 'Exo 2', sans-serif;
+
+//text sizes
+$font-size-sm: 1.8rem;
+$line-height-sm: 2.8rem;
+$font-size-md: 2.4rem;
+$line-height-md: 3.6rem;
+$font-size-lg: 3.6rem;
+$line-height-lg: 4.6rem;
+
+//text sizes for mobile
+$font-size-sm-mb: 1.6rem;
+$line-height-sm-mb: 2.4rem;
+$font-size-md-mb: 1.8rem;
+$line-height-md-mb: 2.6rem;
+$font-size-lg-mb: 2.4rem;
+$line-height-lg-mb: 3.2rem;
+
+//heading sizes
+$font-size-h1: 5.8rem;
+$line-height-h1: 6rem;
+$font-size-h2: 3.4rem;
+$line-height-h2: 4rem;
+$font-size-h3: 2rem;
+$line-height-h3: 3rem;
+
+//heading sizes for mobile
+$font-size-h1-mb: 3rem;
+$line-height-h1-mb: 3.8rem;
+$font-size-h2-mb: 2rem;
+$line-height-h2-mb: 3rem;
+$font-size-h3-mb: 1.8rem;
+$line-height-h3-mb: 2.6rem;
+
+
+/*------------------------------------*\
+      MIXINS
+\*------------------------------------*/
+
+// border-radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// transform
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+// rotate
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+// translate
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+// skew
+@mixin skew($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+//transform origin
+@mixin transform-origin($origin) {
+  moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+//box-model
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+  -moz-box-sizing: $box-model; // Firefox <= 19
+  box-sizing: $box-model;
+}
+
+/*------------------------------------*\
+    COMMON STYLES
+\*------------------------------------*/
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: $color-white;
+  color: $color-black;
+  padding: 0.2em 0;
+  border: 2px solid $color-black;
+}
+
+html {
+  @include box-sizing(border-box);
+}
+
+*,
+*::before,
+*::after {
+  @include box-sizing(inherit);
+}
+
+html {
+  height: 100%;
+  font-size: 10px; // for using rem
+}
+
+body {
+  height: 100%;
+  background: $color-white;
+  font-family: 'Exo 2', sans-serif;
+  color: $color-text;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  border-bottom: 1px solid $color-link;
+  &:hover {
+    border-bottom: none;
+  }
+}
+
+p {
+  font: #{$font-size-sm}/#{$line-height-sm} $font-family;
+  margin: .5rem 0;
+}
+
+p.text-md {
+  font: #{$font-size-md}/#{$line-height-md} $font-family;
+}
+
+.text-lg {
+  font: bold #{$font-size-lg}/#{$line-height-lg} $font-family;
+  margin: 2rem 0;
+  text-transform: none;
+}
+
+h1 {
+  font: bold #{$font-size-h1}/#{$line-height-h1} $font-family;
+  margin: 1rem 0 0;
+}
+
+h2 {
+  font: bold #{$font-size-h2}/#{$line-height-h2} $font-family;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 1rem 0;
+}
+
+h3 {
+  font: bold normal #{$font-size-h3}/#{$line-height-h3} $font-family;
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.page-wrap {
+  background: $color-yellow url("../images/rs-logo-grey.png") no-repeat 50px 100%;
+  background-size: contain;
+  margin: auto;
+  max-width: 724px;
+  min-height: 1024px;
+  color: $color-black;
+  padding: 30px 100px;
+}
+
+/*------------------------------------*\
+    EVENT DETAILS
+\*------------------------------------*/
+.event-details {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 40px;
+
+  .event-date,
+  .event-place,
+  .event-logo,
+  .event-link {
+    width: 50%;
+  }
+
+  .event-place, .event-logo {
+    text-align: right;
+  }
+
+  img {
+    max-width: 80px;
+    margin-left: 20px;
+    vertical-align: middle;
+  }
+}
+
+.schedule + .event-details {
+  margin-bottom: 0;
+}
+
+/*------------------------------------*\
+    SCHEDULE
+\*------------------------------------*/
+
+.schedule {
+  clear: both;
+  display: flex;
+  list-style-type: none;
+  text-align: left;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 50px 0;
+
+  & > li {
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid $color-black;
+    padding: 15px 0 15px 100px;
+
+    &:first-child {
+      border-top: 1px solid $color-black;
+    }
+
+    .schedule-time {
+      position: absolute;
+      left: 0;
+    }
+
+  }
+}
+
+.more-title {
+  margin: 0;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+
+
+/*------------------------------------*\
+    PRINT STYLES
+\*------------------------------------*/
+@media print {
+  /* All your print styles go here */
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  .page-wrap {
+    background-color: transparent;
+    max-width: 210mm;
+    min-width: 210mm;
+    width: 210mm;
+    height: 297mm;
+  }
+
+  @page {
+    margin: 0 !important;
+  }
+
+  h1 {
+    font-size: 6.65rem;
+  }
+
+  h2 {
+    font-size: 3.8rem;
+  }
+
+}
+
+
+
