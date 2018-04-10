@@ -283,7 +283,12 @@ h3 {
   text-transform: uppercase;
 }
 
-
+.text-btn {
+  background: #000;
+  color: #fff;
+  padding: 0 10px;
+  display: inline-block;
+}
 
 
 /*------------------------------------*\
@@ -292,7 +297,6 @@ h3 {
 
 .page-wrap {
   min-height: 0;
-
 }
 
 .event-details {
@@ -303,7 +307,6 @@ h3 {
   background: #000;
   color: #fff;
 }
-
 
 .schedule {
   padding: 30px 0;
@@ -330,7 +333,7 @@ h3 {
   }
 
   .page-wrap {
-    background-color: transparent;
+    //background-color: transparent;
     max-width: 210mm;
     min-width: 210mm;
     width: 210mm;
@@ -345,9 +348,18 @@ h3 {
     font-size: 6.65rem;
   }
 
-  h2 {
+  h2, .text-btn {
     font-size: 3.8rem;
     line-height: 1em;
+    min-height: 4.2rem;
+  }
+
+  p {
+    margin: .3rem 0;
+  }
+
+  .no-print {
+    display: none;
   }
 
 }
